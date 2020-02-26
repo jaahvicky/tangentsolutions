@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// get list of categories
+Route::get('categories', 'CategoryController@index');
+// get specific Categories
+Route::get('category/{id}', 'CategoryController@show');
+// delete a category
+Route::delete('category/{id}', 'CategoryController@destroy');
+// update existing category
+Route::put('task', 'CategoryController@store');
+// create new Category
+Route::post('task', 'CategoryController@store');

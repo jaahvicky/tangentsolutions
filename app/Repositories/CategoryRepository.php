@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Category;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
@@ -13,7 +14,7 @@ class CategoryRepository implements CategoryRepositoryInterface
      * @param int
      * @return collection
      */
-    public function show($category_id)
+    public function get($category_id)
     {
         return Category::find($category_id);
     }
@@ -23,9 +24,9 @@ class CategoryRepository implements CategoryRepositoryInterface
      *
      * @return mixed
      */
-    public function index()
+    public function all()
     {
-        return Category::index();
+        return Category::all();
     }
 
     /**

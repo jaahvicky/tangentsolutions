@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Interfaces;
 
 interface CategoryRepositoryInterface
 {
@@ -9,14 +9,14 @@ interface CategoryRepositoryInterface
      *
      * @param int
      */
-    public function show($category_id);
+    public function get($category_id);
 
     /**
      * Get's all categories.
      *
      * @return mixed
      */
-    public function index();
+    public function all();
 
     /**
      * Deletes a category.

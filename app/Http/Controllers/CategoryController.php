@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 
 class CategoryController extends Controller
 {
+    protected $category;
+
+    /**
+     * CategoryController constructor.
+     *
+     * @param CategoryRepositoryInterface $category
+     */
+    public function __construct(CategoryRepositoryInterface $category)
+    {
+        $this->category = $category;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'categories' => $this->category->all()
+        ];
+
+        return $data;
     }
 
     /**
@@ -45,7 +61,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->category->get($id);
     }
 
     /**

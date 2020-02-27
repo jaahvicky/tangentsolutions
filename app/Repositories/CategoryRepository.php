@@ -3,55 +3,50 @@
 namespace App\Repositories;
 
 use App\Category;
-use App\Repositories\Interfaces\CategoryRepositoryInterface;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
 
     /**
-     * Get's a post by it's ID
+     * Get's a category by it's ID
      *
      * @param int
      * @return collection
      */
-    public function get($post_id)
+    public function show($category_id)
     {
-        return Post::find($post_id);
+        return Category::find($category_id);
     }
 
     /**
-     * Get's all posts.
+     * Get's all categories.
      *
      * @return mixed
      */
-    public function all()
+    public function index()
     {
-        return Post::all();
+        return Category::index();
     }
 
     /**
-     * Deletes a post.
+     * Deletes a category.
      *
      * @param int
      */
-    public function delete($post_id)
+    public function delete($category_id)
     {
-        Post::destroy($post_id);
+        Category::destroy($category_id);
     }
 
     /**
-     * Updates a post.
+     * Updates a category.
      *
      * @param int
      * @param array
      */
-    public function update($post_id, array $post_data)
+    public function update($category_id, array $category_data)
     {
-        Post::find($post_id)->update($post_data);
+        Category::find($category_id)->update($category_data);
     }
 
-    public function getByUser(User $user)
-    {
-        return Post::where('user_id' . $user->id)->get();
-    }
 }

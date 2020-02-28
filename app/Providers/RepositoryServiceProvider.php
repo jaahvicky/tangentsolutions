@@ -23,6 +23,16 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\CategoryRepository'
     
         );
+        $this->app->bind(
+            'App\Repositories\Interfaces\CommentRepositoryInterface',
+            'App\Repositories\CommentRepository'
+
+        );
+        $this->app->bind(
+            'App\Repositories\Interfaces\UserRepositoryInterface',
+            'App\Repositories\UserRepository'
+
+        );
     }
 
     /**

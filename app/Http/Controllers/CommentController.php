@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Interfaces\CommentRepositoryInterface;
 
 class CommentController extends Controller
 {
+    protected $comment;
+
+    /**
+     * CommentController constructor.
+     *
+     * @param CommentRepositoryInterface $comment
+     */
+    public function __construct(CommentRepositoryInterface $comment)
+    {
+        $this->comment = $comment;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +26,11 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'comments' => $this->comment->all()
+        ];
+
+        return $data;
     }
 
     /**
